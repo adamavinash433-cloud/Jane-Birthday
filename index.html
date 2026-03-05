@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Jane ❤️</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    text-align: center;
+    color: white;
+    overflow-x: hidden;
+    background: linear-gradient(135deg, #ffb6d9, #c8a2ff);
+    animation: bgAnimation 10s infinite alternate;
+}
+
+@keyframes bgAnimation {
+    0% { background: linear-gradient(135deg, #ffb6d9, #c8a2ff); }
+    100% { background: linear-gradient(135deg, #ff9acb, #b28dff); }
+}
+
+.container {
+    padding: 40px 20px;
+}
+
+h1 {
+    font-size: 3em;
+    margin-top: 40px;
+    text-shadow: 0 0 15px rgba(255,255,255,0.8);
+}
+
+.message {
+    max-width: 700px;
+    margin: auto;
+    font-size: 1.2em;
+    line-height: 1.8em;
+    margin-top: 30px;
+}
+
+.proposal {
+    margin-top: 50px;
+}
+
+button {
+    padding: 12px 25px;
+    margin: 15px;
+    font-size: 1em;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.yes {
+    background-color: #ff4da6;
+    color: white;
+}
+
+.no {
+    background-color: white;
+    color: #ff4da6;
+}
+
+button:hover {
+    transform: scale(1.1);
+}
+
+.result {
+    margin-top: 20px;
+    font-size: 1.3em;
+    font-weight: bold;
+}
+
+/* Floating hearts */
+.heart {
+    position: fixed;
+    bottom: -20px;
+    font-size: 20px;
+    animation: float 5s linear infinite;
+}
+
+@keyframes float {
+    from { transform: translateY(0); opacity: 1; }
+    to { transform: translateY(-800px); opacity: 0; }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Happy 17th Birthday, Jane 💖</h1>
+
+<div class="message">
+<p>
+I don’t know if you realize this, but you have this quiet magic about you.
+The kind that makes someone smile without even trying.
+</p>
+
+<p>
+Meeting you was unexpected… but caring about you was effortless.
+You are not just beautiful — you are warmth, kindness, and light in one person.
+</p>
+
+<p>
+If I had one wish today, it wouldn’t be about candles or gifts…
+It would simply be to see you smile more, laugh louder, and achieve every dream you carry in your heart.
+</p>
+
+<p>
+And maybe… just maybe…
+I hope one day I get to be part of those dreams too.
+</p>
+
+<p>
+You deserve the happiest birthday, Jane.
+Always. 💫
+</p>
+</div>
+
+<div class="proposal">
+<h2>Jane… I Love You ❤️</h2>
+<p>Would you like to give us a chance?</p>
+
+<button class="yes" onclick="yesClicked()">YES 💗</button>
+<button class="no" onclick="noClicked()">NO 🤍</button>
+
+<div class="result" id="result"></div>
+</div>
+
+</div>
+
+<!-- Background Music -->
+<audio autoplay loop>
+  <source src="https://files.freemusicarchive.org/storage-freemusicarchive-org/music/no_curator/Scott_Holmes_Music/Corporate__Motivational_Music/Scott_Holmes_Music_-_05_-_Our_Big_Adventure.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+function yesClicked() {
+    document.getElementById("result").innerHTML = "You just made me the happiest person alive 💖✨";
+}
+
+function noClicked() {
+    document.getElementById("result").innerHTML = "That's okay. I will still wish you happiness always 🤍";
+}
+
+function createHeart() {
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML = "💖";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = Math.random() * 20 + 10 + "px";
+    heart.style.animationDuration = Math.random() * 3 + 2 + "s";
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    }, 5000);
+}
+
+setInterval(createHeart, 300);
+</script>
+
+</body>
+</html>
