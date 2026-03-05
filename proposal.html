@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>I Love You Jane</title>
+<style>
+body{
+margin:0;
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+font-family:Segoe UI;
+background:linear-gradient(135deg,#ff9acb,#b28dff);
+color:white;
+text-align:center;
+}
+button{
+padding:12px 25px;
+margin:15px;
+border:none;
+border-radius:30px;
+cursor:pointer;
+font-size:16px;
+}
+.yes{background:#ff4da6;color:white;}
+.no{background:white;color:#ff4da6;}
+</style>
+</head>
+<body>
+
+<h1>Jane… I Love You ❤️</h1>
+<p>Would you like to give us a chance?</p>
+
+<button class="yes" onclick="yes()">YES 💖</button>
+<button class="no" onclick="no()">NO 🤍</button>
+
+<h3 id="result"></h3>
+
+<script>
+function yes(){
+document.getElementById("result").innerHTML="You just made me the happiest person alive 💖✨";
+}
+function no(){
+document.getElementById("result").innerHTML="That's okay. I will always respect you 🤍";
+}
+</script>
+
+</body>
+</html>
