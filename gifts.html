@@ -2,20 +2,24 @@
 <html>
 <head>
 <title>17 Special Gifts For Jane 🎁</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <style>
 body{
 margin:0;
-height:100vh;
+min-height:100vh;
 display:flex;
 flex-direction:column;
 justify-content:center;
 align-items:center;
-font-family:Segoe UI;
+font-family:'Segoe UI', sans-serif;
 background:linear-gradient(135deg,#ffd6e8,#cdb4ff,#a2d2ff);
 background-size:300% 300%;
-animation:gradient 8s ease infinite;
+animation:gradient 10s ease infinite;
 color:white;
 text-align:center;
+padding:20px;
 overflow:hidden;
 }
 
@@ -25,65 +29,86 @@ overflow:hidden;
 100%{background-position:0% 50%;}
 }
 
-h2{margin-bottom:20px;}
+h2{
+font-size:6vw;
+margin-bottom:20px;
+}
 
 .box{
-font-size:90px;
+font-size:20vw;
 cursor:pointer;
 transition:0.4s;
 }
 
 .box:hover{
-transform:scale(1.15) rotate(5deg);
+transform:scale(1.12) rotate(5deg);
 }
 
 .gift{
-font-size:110px;
-margin-top:20px;
+font-size:22vw;
+margin-top:15px;
 display:none;
 animation:pop 0.6s ease;
 }
 
 @keyframes pop{
 0%{transform:scale(0);}
-80%{transform:scale(1.3);}
+80%{transform:scale(1.2);}
 100%{transform:scale(1);}
 }
 
 .message{
 margin-top:15px;
-font-size:20px;
-max-width:500px;
+font-size:5vw;
+max-width:90%;
 display:none;
+line-height:1.6;
 }
 
 .counter{
 position:absolute;
 top:20px;
 right:20px;
-font-size:18px;
+font-size:4vw;
 }
 
 button{
 margin-top:25px;
-padding:12px 25px;
+padding:14px 30px;
 border:none;
-border-radius:30px;
+border-radius:40px;
 background:white;
 color:#ff4da6;
 cursor:pointer;
+font-size:5vw;
+box-shadow:0 5px 15px rgba(0,0,0,0.2);
 display:none;
+transition:0.3s;
+}
+
+button:hover{
+transform:scale(1.05);
 }
 
 .heart{
 position:fixed;
 top:-10px;
 font-size:20px;
-animation:fall 3s linear forwards;
+animation:fall linear forwards;
 }
 
 @keyframes fall{
-to{transform:translateY(100vh);opacity:0;}
+to{transform:translateY(110vh);opacity:0;}
+}
+
+/* Desktop Fix */
+@media (min-width:768px){
+h2{font-size:28px;}
+.box{font-size:90px;}
+.gift{font-size:110px;}
+.message{font-size:18px;}
+.counter{font-size:16px;}
+button{font-size:16px;}
 }
 </style>
 </head>
@@ -101,6 +126,7 @@ to{transform:translateY(100vh);opacity:0;}
 <button onclick="nextGift()" id="nextBtn">Next Gift ➡</button>
 
 <script>
+
 let giftIndex = 0;
 
 const gifts = [
@@ -115,15 +141,16 @@ const gifts = [
 {emoji:"🍟", text:"Snacks for our future movie nights 🍟"},
 {emoji:"🧸", text:"A teddy bear to hug when I’m not there 🧸"},
 {emoji:"🤗", text:"A free hug coupon — redeem anytime 🤗"},
-{emoji:"🎧", text:"A playlist made only for you 🎶"},
-{emoji:"🌸", text:"A year full of happiness and growth 🌸"},
-{emoji:"✨", text:"A sky full of shining dreams ✨"},
-{emoji:"🌟", text:"A star that shines just like you 🌟"},
+{emoji:"🌍", text:"A promise to explore new places and grow together 🌍"},
+{emoji:"🕰️", text:"My time — because every moment with you matters 🕰️"},
+{emoji:"📖", text:"A story that we can slowly write together, page by page 📖"},
+{emoji:"🎨", text:"A future filled with colors, laughter, and little beautiful surprises 🎨"},
 {emoji:"💌", text:"A handwritten letter from my heart 💌"},
-{emoji:"❤️", text:"And finally… my heart. It has been yours quietly for a while ❤️"}
+{emoji:"❤️", text:"And finally… something I’ve been holding quietly — my heart ❤️"}
 ];
 
 function openGift(){
+
 document.querySelector(".box").style.display="none";
 
 let gift=gifts[giftIndex];
@@ -136,13 +163,7 @@ document.getElementById("giftMessage").style.display="block";
 
 document.getElementById("nextBtn").style.display="inline-block";
 
-for(let i=0;i<25;i++){
-let h=document.createElement("div");
-h.className="heart";
-h.innerHTML="💖";
-h.style.left=Math.random()*100+"vw";
-document.body.appendChild(h);
-}
+createHearts();
 }
 
 function nextGift(){
@@ -158,6 +179,20 @@ document.getElementById("nextBtn").style.display="none";
 window.location.href="cake.html";
 }
 }
+
+function createHearts(){
+for(let i=0;i<30;i++){
+let h=document.createElement("div");
+h.className="heart";
+h.innerHTML="💖";
+h.style.left=Math.random()*100+"vw";
+h.style.animationDuration=(2+Math.random()*3)+"s";
+document.body.appendChild(h);
+
+setTimeout(()=>{h.remove();},5000);
+}
+}
+
 </script>
 
 </body>
