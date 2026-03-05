@@ -2,6 +2,9 @@
 <html>
 <head>
 <title>Welcome Jane ❤️</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <style>
 body{
 margin:0;
@@ -10,29 +13,57 @@ display:flex;
 justify-content:center;
 align-items:center;
 flex-direction:column;
-font-family:Segoe UI;
+font-family:'Segoe UI', sans-serif;
 background:linear-gradient(135deg,#ff9acb,#b28dff);
 color:white;
 text-align:center;
+padding:20px;
 }
+
+/* Responsive Text */
+h1{
+font-size:8vw;
+margin-bottom:15px;
+}
+
+p{
+font-size:5vw;
+max-width:90%;
+}
+
+/* Button Styling */
 button{
-padding:15px 30px;
+margin-top:30px;
+padding:14px 35px;
 border:none;
-border-radius:30px;
-font-size:18px;
+border-radius:40px;
+font-size:5vw;
 background:white;
 color:#ff4da6;
 cursor:pointer;
 transition:0.3s;
+box-shadow:0 4px 15px rgba(0,0,0,0.2);
 }
-button:hover{transform:scale(1.1);}
+
+button:hover{
+transform:scale(1.08);
+}
+
+/* For bigger screens */
+@media (min-width:768px){
+h1{font-size:40px;}
+p{font-size:20px;}
+button{font-size:18px;}
+}
 </style>
 </head>
+
 <body>
 
 <h1>Welcome Jane 💖</h1>
 <p>Something special is waiting for you...</p>
-<button onclick="nextPage()">Start</button>
+
+<button onclick="nextPage()">Start ✨</button>
 
 <script>
 function nextPage(){
