@@ -2,6 +2,7 @@
 <html>
 <head>
 <title>I Love You Jane</title>
+
 <style>
 body{
 margin:0;
@@ -16,6 +17,7 @@ color:white;
 text-align:center;
 overflow:hidden;
 }
+
 button{
 padding:12px 25px;
 margin:15px;
@@ -23,46 +25,90 @@ border:none;
 border-radius:30px;
 cursor:pointer;
 font-size:16px;
+transition:0.3s;
 }
-.yes{background:#ff4da6;color:white;}
-.no{background:white;color:#ff4da6;}
+
+.yes{
+background:#ff4da6;
+color:white;
+}
+
+.no{
+background:white;
+color:#ff4da6;
+position:relative;
+}
+
 .confetti{
 position:fixed;
 top:-10px;
 font-size:20px;
 animation:fall 3s linear forwards;
 }
+
 @keyframes fall{
 to{transform:translateY(100vh);opacity:0;}
 }
+
+#hugSection{
+display:none;
+margin-top:20px;
+animation:fadeIn 1s ease-in;
+}
+
+@keyframes fadeIn{
+from{opacity:0;}
+to{opacity:1;}
+}
 </style>
+
 </head>
+
 <body>
 
 <h1>Jane… I Love You ❤️</h1>
 <p>Would you like to give us a chance?</p>
 
+<div id="buttons">
 <button class="yes" onclick="yes()">YES 💖</button>
-<button class="no" onclick="no()">NO 🤍</button>
+<button class="no" id="noBtn" onmouseover="moveNo()">NO 🤍</button>
+</div>
 
 <h3 id="result"></h3>
 
-<script>
-function yes(){
-document.getElementById("result").innerHTML="You just made me the happiest person alive 💖✨";
+<div id="hugSection">
+<img src="https://media.giphy.com/media/l2QDM9Jnim1YVILXa/giphy.gif" width="220">
+<h2>You just made me the happiest person alive 💖✨</h2>
+</div>
 
-for(let i=0;i<30;i++){
+<script>
+
+function yes(){
+
+// hide buttons
+document.getElementById("buttons").style.display="none";
+
+// show hug animation
+document.getElementById("hugSection").style.display="block";
+
+// hearts rain
+for(let i=0;i<40;i++){
 let conf=document.createElement("div");
 conf.className="confetti";
 conf.innerHTML="💖";
 conf.style.left=Math.random()*100+"vw";
 document.body.appendChild(conf);
 }
+
 }
 
-function no(){
-document.getElementById("result").innerHTML="That's okay. I will always respect you 🤍";
+function moveNo(){
+let btn=document.getElementById("noBtn");
+btn.style.position="absolute";
+btn.style.left=Math.random()*80+"vw";
+btn.style.top=Math.random()*80+"vh";
 }
+
 </script>
 
 </body>
