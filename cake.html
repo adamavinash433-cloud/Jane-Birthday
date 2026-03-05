@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Make a Wish</title>
+<style>
+body{
+margin:0;
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+font-family:Segoe UI;
+background:linear-gradient(135deg,#ffc3e0,#c8a2ff);
+color:white;
+text-align:center;
+}
+.cake{
+font-size:100px;
+}
+button{
+margin-top:20px;
+padding:12px 25px;
+border:none;
+border-radius:30px;
+background:#ff4da6;
+color:white;
+cursor:pointer;
+}
+</style>
+</head>
+<body>
+
+<h2>Make a Wish and Blow the Candle 🎂</h2>
+<div class="cake" id="cake">🎂</div>
+
+<button onclick="blow()">Blow Candle 💨</button>
+
+<script>
+function blow(){
+document.getElementById("cake").innerHTML="🍰";
+alert("Your wish will come true ✨");
+}
+</script>
+
+<button onclick="next()">Final Surprise ❤️</button>
+
+<script>
+function next(){
+window.location.href="proposal.html";
+}
+</script>
+
+</body>
+</html>
