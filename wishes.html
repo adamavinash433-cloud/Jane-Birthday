@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Birthday Wishes</title>
+<style>
+body{
+margin:0;
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+font-family:Segoe UI;
+background:linear-gradient(135deg,#ffb6d9,#c8a2ff);
+color:white;
+text-align:center;
+}
+.gift{
+font-size:40px;
+cursor:pointer;
+margin:15px;
+}
+button{
+margin-top:20px;
+padding:12px 25px;
+border:none;
+border-radius:30px;
+background:white;
+color:#ff4da6;
+cursor:pointer;
+}
+</style>
+</head>
+<body>
+
+<h2>Happy 17th Birthday Jane 🎉</h2>
+<p>Click the gifts 🎁</p>
+
+<div class="gift" onclick="alert('A hug just for you 🤗')">🎁</div>
+<div class="gift" onclick="alert('A bouquet of flowers 💐')">🎁</div>
+<div class="gift" onclick="alert('All my good wishes 💖')">🎁</div>
+
+<button onclick="next()">Next Surprise 🎂</button>
+
+<script>
+function next(){
+window.location.href="cake.html";
+}
+</script>
+
+</body>
+</html>
