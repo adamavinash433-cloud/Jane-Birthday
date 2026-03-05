@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Happy Birthday Jane 🎉</title>
+<style>
+body{
+margin:0;
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+font-family:Segoe UI;
+background:linear-gradient(135deg,#ffcad4,#cdb4db,#a2d2ff);
+background-size:300% 300%;
+animation:gradient 10s ease infinite;
+color:white;
+text-align:center;
+padding:20px;
+overflow:hidden;
+}
+
+@keyframes gradient{
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
+}
+
+h1{
+font-size:40px;
+margin-bottom:20px;
+}
+
+p{
+max-width:700px;
+line-height:1.7;
+font-size:18px;
+}
+
+button{
+margin-top:30px;
+padding:12px 25px;
+border:none;
+border-radius:30px;
+background:white;
+color:#ff4da6;
+cursor:pointer;
+font-size:16px;
+}
+
+.sparkle{
+position:fixed;
+top:-10px;
+font-size:18px;
+animation:fall 4s linear forwards;
+}
+
+@keyframes fall{
+to{transform:translateY(100vh);opacity:0;}
+}
+</style>
+</head>
+<body>
+
+<h1>Happy 17th Birthday, Jane 🎂💖</h1>
+
+<p>
+Today is not just another day —  
+it’s the day someone truly special was born.
+</p>
+
+<p>
+You are 17 now… stepping into a new chapter of your life.
+I hope this year brings you bigger dreams,
+stronger confidence,
+and endless reasons to smile.
+</p>
+
+<p>
+May you always stay kind, bright, and beautifully yourself.
+And may every candle you blow today
+carry a wish that comes true.
+</p>
+
+<p>
+You deserve happiness that feels as sweet as your favorite desserts,
+and moments that make your heart feel full.
+</p>
+
+<button onclick="next()">Open Your 17 Surprises 🎁</button>
+
+<script>
+function next(){
+window.location.href="gifts.html";
+}
+
+for(let i=0;i<30;i++){
+let s=document.createElement("div");
+s.className="sparkle";
+s.innerHTML="✨";
+s.style.left=Math.random()*100+"vw";
+document.body.appendChild(s);
+}
+</script>
+
+</body>
+</html>
