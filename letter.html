@@ -2,6 +2,9 @@
 <html>
 <head>
 <title>A Letter For You</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <style>
 body{
 margin:0;
@@ -9,45 +12,99 @@ height:100vh;
 display:flex;
 justify-content:center;
 align-items:center;
-font-family:Segoe UI;
+font-family:'Segoe UI', sans-serif;
 background:linear-gradient(135deg,#ffc3e0,#c8a2ff);
 color:white;
 text-align:center;
 padding:20px;
+overflow:hidden;
 }
+
+.container{
+max-width:90%;
+animation:fadeIn 2s ease-in-out;
+}
+
+h2{
+font-size:7vw;
+margin-bottom:20px;
+}
+
+p{
+font-size:5vw;
+line-height:1.6;
+min-height:120px;
+}
+
 button{
 margin-top:30px;
-padding:12px 25px;
+padding:14px 30px;
 border:none;
-border-radius:30px;
+border-radius:40px;
 background:#ff4da6;
 color:white;
 cursor:pointer;
+font-size:5vw;
+box-shadow:0 4px 15px rgba(0,0,0,0.2);
+transition:0.3s;
+display:none;
+}
+
+button:hover{
+transform:scale(1.08);
+}
+
+@keyframes fadeIn{
+from{opacity:0;}
+to{opacity:1;}
+}
+
+/* Desktop Fix */
+@media (min-width:768px){
+h2{font-size:32px;}
+p{font-size:18px;}
+button{font-size:16px;}
 }
 </style>
 </head>
+
 <body>
 
-<div>
+<div class="container">
 <h2>Dear Jane, 💌</h2>
-<p>
-Meeting you was unexpected… but caring about you was effortless.
-You have this quiet magic that makes everything feel lighter.
-Your smile, your kindness, your presence — they mean more than you know.
-</p>
 
-<p>
-On your 17th birthday, I just want you to know that
-you are truly special… and you deserve the happiest life.
-</p>
+<p id="letter"></p>
 
-<button onclick="next()">Continue ❤️</button>
+<button id="nextBtn" onclick="next()">Continue ❤️</button>
 </div>
 
 <script>
+
+const text = `Meeting you was unexpected… but caring about you was effortless.
+You have this quiet magic that makes everything feel lighter.
+Your smile, your kindness, your presence — they mean more than you know.
+
+On your 17th birthday, I just want you to know that you are truly special… and you deserve the happiest life.`;
+
+let i = 0;
+let speed = 35;
+
+function typeWriter(){
+if(i < text.length){
+document.getElementById("letter").innerHTML += text.charAt(i);
+i++;
+setTimeout(typeWriter, speed);
+}else{
+document.getElementById("nextBtn").style.display = "inline-block";
+}
+}
+
+window.onload = typeWriter;
+
 function next(){
 window.location.href="birthday.html";
 }
+
 </script>
 
 </body>
