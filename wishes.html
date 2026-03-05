@@ -14,14 +14,25 @@ font-family:Segoe UI;
 background:linear-gradient(135deg,#ffb6d9,#c8a2ff);
 color:white;
 text-align:center;
+overflow:hidden;
 }
 .gift{
-font-size:40px;
+font-size:60px;
 cursor:pointer;
-margin:15px;
+margin:20px;
+transition:transform 0.5s;
+}
+.gift:hover{
+transform:scale(1.2) rotate(10deg);
+}
+.message{
+margin-top:20px;
+font-size:20px;
+opacity:0;
+transition:opacity 1s;
 }
 button{
-margin-top:20px;
+margin-top:30px;
 padding:12px 25px;
 border:none;
 border-radius:30px;
@@ -36,13 +47,30 @@ cursor:pointer;
 <h2>Happy 17th Birthday Jane 🎉</h2>
 <p>Click the gifts 🎁</p>
 
-<div class="gift" onclick="alert('A hug just for you 🤗')">🎁</div>
-<div class="gift" onclick="alert('A bouquet of flowers 💐')">🎁</div>
-<div class="gift" onclick="alert('All my good wishes 💖')">🎁</div>
+<div class="gift" onclick="openGift('hug')">🎁</div>
+<div class="gift" onclick="openGift('flowers')">🎁</div>
+<div class="gift" onclick="openGift('love')">🎁</div>
+
+<div class="message" id="msg"></div>
 
 <button onclick="next()">Next Surprise 🎂</button>
 
 <script>
+function openGift(type){
+let msg=document.getElementById("msg");
+msg.style.opacity=1;
+
+if(type=="hug"){
+msg.innerHTML="A warm hug just for you 🤗💖";
+}
+if(type=="flowers"){
+msg.innerHTML="A bouquet of flowers for the prettiest girl 💐✨";
+}
+if(type=="love"){
+msg.innerHTML="All my love and good wishes for you 💕";
+}
+}
+
 function next(){
 window.location.href="cake.html";
 }
