@@ -14,6 +14,7 @@ font-family:Segoe UI;
 background:linear-gradient(135deg,#ff9acb,#b28dff);
 color:white;
 text-align:center;
+overflow:hidden;
 }
 button{
 padding:12px 25px;
@@ -25,6 +26,15 @@ font-size:16px;
 }
 .yes{background:#ff4da6;color:white;}
 .no{background:white;color:#ff4da6;}
+.confetti{
+position:fixed;
+top:-10px;
+font-size:20px;
+animation:fall 3s linear forwards;
+}
+@keyframes fall{
+to{transform:translateY(100vh);opacity:0;}
+}
 </style>
 </head>
 <body>
@@ -40,7 +50,16 @@ font-size:16px;
 <script>
 function yes(){
 document.getElementById("result").innerHTML="You just made me the happiest person alive 💖✨";
+
+for(let i=0;i<30;i++){
+let conf=document.createElement("div");
+conf.className="confetti";
+conf.innerHTML="💖";
+conf.style.left=Math.random()*100+"vw";
+document.body.appendChild(conf);
 }
+}
+
 function no(){
 document.getElementById("result").innerHTML="That's okay. I will always respect you 🤍";
 }
