@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>17 Special Gifts For Jane 🎁</title>
+<style>
+body{
+margin:0;
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+font-family:Segoe UI;
+background:linear-gradient(135deg,#ffd6e8,#cdb4ff,#a2d2ff);
+background-size:300% 300%;
+animation:gradient 8s ease infinite;
+color:white;
+text-align:center;
+overflow:hidden;
+}
+
+@keyframes gradient{
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
+}
+
+h2{margin-bottom:20px;}
+
+.box{
+font-size:90px;
+cursor:pointer;
+transition:0.4s;
+}
+
+.box:hover{
+transform:scale(1.15) rotate(5deg);
+}
+
+.gift{
+font-size:110px;
+margin-top:20px;
+display:none;
+animation:pop 0.6s ease;
+}
+
+@keyframes pop{
+0%{transform:scale(0);}
+80%{transform:scale(1.3);}
+100%{transform:scale(1);}
+}
+
+.message{
+margin-top:15px;
+font-size:20px;
+max-width:500px;
+display:none;
+}
+
+.counter{
+position:absolute;
+top:20px;
+right:20px;
+font-size:18px;
+}
+
+button{
+margin-top:25px;
+padding:12px 25px;
+border:none;
+border-radius:30px;
+background:white;
+color:#ff4da6;
+cursor:pointer;
+display:none;
+}
+
+.heart{
+position:fixed;
+top:-10px;
+font-size:20px;
+animation:fall 3s linear forwards;
+}
+
+@keyframes fall{
+to{transform:translateY(100vh);opacity:0;}
+}
+</style>
+</head>
+<body>
+
+<div class="counter" id="counter">Gift 1 of 17</div>
+
+<h2>Click to Open Your Surprise 🎁</h2>
+
+<div class="box" onclick="openGift()">🎁</div>
+
+<div class="gift" id="giftItem"></div>
+<div class="message" id="giftMessage"></div>
+
+<button onclick="nextGift()" id="nextBtn">Next Gift ➡</button>
+
+<script>
+let giftIndex = 0;
+
+const gifts = [
+{emoji:"💐", text:"Beautiful flowers for the most beautiful girl 🌸"},
+{emoji:"🍰", text:"A sweet cake for your sweetest smile 🍰"},
+{emoji:"🧁", text:"Cupcakes for every time you made my day better 🧁"},
+{emoji:"🍩", text:"Donuts as sweet as you 🍩"},
+{emoji:"🍫", text:"Chocolate because life is sweeter with you 🍫"},
+{emoji:"🍪", text:"Cookies baked with warm wishes 🍪"},
+{emoji:"🍨", text:"Ice cream for cool happy moments 🍨"},
+{emoji:"🍕", text:"Pizza party just for you 🍕"},
+{emoji:"🍟", text:"Snacks for our future movie nights 🍟"},
+{emoji:"🧸", text:"A teddy bear to hug when I’m not there 🧸"},
+{emoji:"🤗", text:"A free hug coupon — redeem anytime 🤗"},
+{emoji:"🎧", text:"A playlist made only for you 🎶"},
+{emoji:"🌸", text:"A year full of happiness and growth 🌸"},
+{emoji:"✨", text:"A sky full of shining dreams ✨"},
+{emoji:"🌟", text:"A star that shines just like you 🌟"},
+{emoji:"💌", text:"A handwritten letter from my heart 💌"},
+{emoji:"❤️", text:"And finally… my heart. It has been yours quietly for a while ❤️"}
+];
+
+function openGift(){
+document.querySelector(".box").style.display="none";
+
+let gift=gifts[giftIndex];
+
+document.getElementById("giftItem").innerHTML=gift.emoji;
+document.getElementById("giftItem").style.display="block";
+
+document.getElementById("giftMessage").innerHTML=gift.text;
+document.getElementById("giftMessage").style.display="block";
+
+document.getElementById("nextBtn").style.display="inline-block";
+
+for(let i=0;i<25;i++){
+let h=document.createElement("div");
+h.className="heart";
+h.innerHTML="💖";
+h.style.left=Math.random()*100+"vw";
+document.body.appendChild(h);
+}
+}
+
+function nextGift(){
+giftIndex++;
+
+if(giftIndex < gifts.length){
+document.getElementById("counter").innerHTML="Gift "+(giftIndex+1)+" of 17";
+document.querySelector(".box").style.display="block";
+document.getElementById("giftItem").style.display="none";
+document.getElementById("giftMessage").style.display="none";
+document.getElementById("nextBtn").style.display="none";
+}else{
+window.location.href="proposal.html";
+}
+}
+</script>
+
+</body>
+</html>
