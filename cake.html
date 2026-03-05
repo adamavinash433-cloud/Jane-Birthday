@@ -16,7 +16,20 @@ color:white;
 text-align:center;
 }
 .cake{
-font-size:100px;
+font-size:120px;
+position:relative;
+}
+.flame{
+position:absolute;
+top:-20px;
+left:50%;
+transform:translateX(-50%);
+font-size:30px;
+animation:flicker 0.3s infinite alternate;
+}
+@keyframes flicker{
+from{opacity:1;}
+to{opacity:0.4;}
 }
 button{
 margin-top:20px;
@@ -32,22 +45,21 @@ cursor:pointer;
 <body>
 
 <h2>Make a Wish and Blow the Candle 🎂</h2>
-<div class="cake" id="cake">🎂</div>
+
+<div class="cake">
+🎂
+<div class="flame" id="flame">🔥</div>
+</div>
 
 <button onclick="blow()">Blow Candle 💨</button>
 
 <script>
 function blow(){
-document.getElementById("cake").innerHTML="🍰";
+document.getElementById("flame").style.display="none";
+setTimeout(()=>{
 alert("Your wish will come true ✨");
-}
-</script>
-
-<button onclick="next()">Final Surprise ❤️</button>
-
-<script>
-function next(){
 window.location.href="proposal.html";
+},1000);
 }
 </script>
 
