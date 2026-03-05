@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>I Love You Jane</title>
+<title>I Love You Jane ❤️</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
 body{
@@ -11,54 +13,84 @@ display:flex;
 justify-content:center;
 align-items:center;
 flex-direction:column;
-font-family:Segoe UI;
-background:linear-gradient(135deg,#ff9acb,#b28dff);
+font-family:'Segoe UI',sans-serif;
+background:linear-gradient(135deg,#ff9acb,#b28dff,#a2d2ff);
+background-size:300% 300%;
+animation:gradient 8s ease infinite;
 color:white;
 text-align:center;
 overflow:hidden;
+padding:20px;
+}
+
+@keyframes gradient{
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
+}
+
+h1{
+font-size:7vw;
+margin-bottom:10px;
+}
+
+p{
+font-size:5vw;
 }
 
 button{
-padding:12px 25px;
+padding:14px 28px;
 margin:15px;
 border:none;
-border-radius:30px;
+border-radius:40px;
 cursor:pointer;
-font-size:16px;
+font-size:5vw;
 transition:0.3s;
 }
 
 .yes{
-background:#ff4da6;
-color:white;
+background:white;
+color:#ff4da6;
+box-shadow:0 5px 15px rgba(0,0,0,0.2);
 }
 
 .no{
-background:white;
-color:#ff4da6;
+background:#ff4da6;
+color:white;
 position:relative;
+}
+
+button:hover{
+transform:scale(1.05);
 }
 
 .confetti{
 position:fixed;
 top:-10px;
-font-size:20px;
+font-size:22px;
 animation:fall 3s linear forwards;
 }
 
 @keyframes fall{
-to{transform:translateY(100vh);opacity:0;}
+to{transform:translateY(110vh);opacity:0;}
 }
 
-#hugSection{
+#yesSection, #noSection{
 display:none;
-margin-top:20px;
-animation:fadeIn 1s ease-in;
+margin-top:25px;
+animation:fadeIn 1s ease;
 }
 
 @keyframes fadeIn{
 from{opacity:0;}
 to{opacity:1;}
+}
+
+/* Desktop Fix */
+@media (min-width:768px){
+h1{font-size:28px;}
+p{font-size:18px;}
+button{font-size:16px;}
 }
 </style>
 
@@ -70,35 +102,48 @@ to{opacity:1;}
 <p>Would you like to give us a chance?</p>
 
 <div id="buttons">
-<button class="yes" onclick="yes()">YES 💖</button>
-<button class="no" id="noBtn" onmouseover="moveNo()">NO 🤍</button>
+<button class="yes" onclick="yesClick()">YES 💖</button>
+<button class="no" id="noBtn" onclick="noClick()" onmouseover="moveNo()">NO 🤍</button>
 </div>
 
-<h3 id="result"></h3>
-
-<div id="hugSection">
-<img src="https://media.giphy.com/media/l2QDM9Jnim1YVILXa/giphy.gif" width="220">
+<!-- YES RESULT -->
+<div id="yesSection">
+<img src="https://media.giphy.com/media/3oriO0OEd9QIDdllqo/giphy.gif" width="220">
 <h2>You just made me the happiest person alive 💖✨</h2>
+<p>From today… it’s us ❤️</p>
+</div>
+
+<!-- NO RESULT -->
+<div id="noSection">
+<img src="https://media.giphy.com/media/OPU6wzx8JrHna/giphy.gif" width="200">
+<h2>Oh nooo 😭</h2>
+<p>But I’ll still smile… because you matter to me ❤️</p>
 </div>
 
 <script>
 
-function yes(){
+function yesClick(){
 
-// hide buttons
 document.getElementById("buttons").style.display="none";
+document.getElementById("yesSection").style.display="block";
 
-// show hug animation
-document.getElementById("hugSection").style.display="block";
-
-// hearts rain
-for(let i=0;i<40;i++){
+for(let i=0;i<50;i++){
 let conf=document.createElement("div");
 conf.className="confetti";
 conf.innerHTML="💖";
 conf.style.left=Math.random()*100+"vw";
+conf.style.animationDuration=(2+Math.random()*2)+"s";
 document.body.appendChild(conf);
+
+setTimeout(()=>{conf.remove();},4000);
 }
+
+}
+
+function noClick(){
+
+document.getElementById("buttons").style.display="none";
+document.getElementById("noSection").style.display="block";
 
 }
 
