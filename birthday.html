@@ -2,21 +2,24 @@
 <html>
 <head>
 <title>Happy Birthday Jane 🎉</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <style>
 body{
 margin:0;
-height:100vh;
+min-height:100vh;
 display:flex;
 flex-direction:column;
 justify-content:center;
 align-items:center;
-font-family:Segoe UI;
+font-family:'Segoe UI', sans-serif;
 background:linear-gradient(135deg,#ffcad4,#cdb4db,#a2d2ff);
 background-size:300% 300%;
-animation:gradient 10s ease infinite;
+animation:gradient 12s ease infinite;
 color:white;
 text-align:center;
-padding:20px;
+padding:25px;
 overflow:hidden;
 }
 
@@ -26,81 +29,101 @@ overflow:hidden;
 100%{background-position:0% 50%;}
 }
 
+.container{
+max-width:90%;
+animation:fadeIn 2s ease-in-out;
+}
+
 h1{
-font-size:40px;
+font-size:8vw;
 margin-bottom:20px;
 }
 
 p{
-max-width:700px;
+font-size:5vw;
 line-height:1.7;
-font-size:18px;
+margin-bottom:15px;
 }
 
 button{
 margin-top:30px;
-padding:12px 25px;
+padding:15px 30px;
 border:none;
-border-radius:30px;
+border-radius:40px;
 background:white;
 color:#ff4da6;
 cursor:pointer;
-font-size:16px;
+font-size:5vw;
+box-shadow:0 5px 20px rgba(0,0,0,0.25);
+transition:0.3s;
 }
 
+button:hover{
+transform:scale(1.08);
+}
+
+/* Sparkle */
 .sparkle{
 position:fixed;
 top:-10px;
 font-size:18px;
-animation:fall 4s linear forwards;
+animation:fall linear forwards;
 }
 
 @keyframes fall{
-to{transform:translateY(100vh);opacity:0;}
+to{transform:translateY(110vh);opacity:0;}
+}
+
+@keyframes fadeIn{
+from{opacity:0;}
+to{opacity:1;}
+}
+
+/* Desktop Fix */
+@media (min-width:768px){
+h1{font-size:38px;}
+p{font-size:18px;}
+button{font-size:16px;}
 }
 </style>
 </head>
 <body>
 
+<div class="container">
 <h1>Happy 17th Birthday, Jane 🎂💖</h1>
 
-<p>
-Today is not just another day —  
-it’s the day someone truly special was born.
-</p>
+<p>Today is not just another day — it’s the day someone truly special was born.</p>
 
-<p>
-You are 17 now… stepping into a new chapter of your life.
-I hope this year brings you bigger dreams,
-stronger confidence,
-and endless reasons to smile.
-</p>
+<p>You are 17 now… stepping into a new chapter of your life.
+I hope this year brings you bigger dreams, stronger confidence, and endless reasons to smile.</p>
 
-<p>
-May you always stay kind, bright, and beautifully yourself.
-And may every candle you blow today
-carry a wish that comes true.
-</p>
+<p>May you always stay kind, bright, and beautifully yourself.
+And may every candle you blow today carry a wish that comes true.</p>
 
-<p>
-You deserve happiness that feels as sweet as your favorite desserts,
-and moments that make your heart feel full.
-</p>
+<p>You deserve happiness that feels as sweet as your favorite desserts,
+and moments that make your heart feel full.</p>
 
 <button onclick="next()">Open Your 17 Surprises 🎁</button>
+</div>
 
 <script>
 function next(){
 window.location.href="gifts.html";
 }
 
-for(let i=0;i<30;i++){
+/* Continuous Sparkle Animation */
+function createSparkle(){
 let s=document.createElement("div");
 s.className="sparkle";
 s.innerHTML="✨";
 s.style.left=Math.random()*100+"vw";
+s.style.animationDuration=(3+Math.random()*3)+"s";
 document.body.appendChild(s);
+
+setTimeout(()=>{s.remove();},6000);
 }
+
+setInterval(createSparkle,300);
 </script>
 
 </body>
